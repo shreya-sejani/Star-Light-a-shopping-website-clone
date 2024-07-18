@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Light</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        main{
+            background-image: url(images/slider/slide5.PNG);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: medium;
+        }
+        .form{
+            background-color: rgba(192, 192, 192, 0.658);
+            margin: 10px 600px 40px 40px;
+            padding: 40px;
+            border: 1px solid lightgray;
+            border-radius: 4px;
+        }
+        .heading{
+            background-color: rgb(192, 192, 192);
+            padding-top: 10px;
+            border: 1px solid lightgray;
+            border-radius: 4px;
+        }
+        .form-control{
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .form-control input:focus{
+            outline: 0;
+            border-color: #777;
+        }
+        .form-control.success i.fa-circle-check{
+            color: #2ecc71;
+            visibility: visible;
+        }
+        .form-control.error i.fa-circle-exclamation{
+            color: #e74c3c;
+            visibility: visible;
+        }
+        .form-control.success input{
+            border-color: #2ecc71;
+        }
+        .form-control.error input{
+            border-color: #e74c3c;
+        }
+        .form-control i{
+            position: absolute;
+            right: 50px;
+            top: 38px;
+            visibility: hidden;
+        }
+        .form-control small{
+            color: #e74c3c;
+            position: absolute;
+            left: 10px;
+            visibility: hidden;
+        }
+        .form-control.error small{
+            visibility: visible;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        input[type="password"],
+        select,
+        textarea{
+            width:95%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius:5px;
+            margin: 5px;
+        }
+        input[type="submit"],input[type="reset"]{
+            background-color: #e69693;
+            color:white;
+            padding : 12px 20px;
+            border:none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover,input[type="reset"]:hover{
+            background-color: #eb7a76;
+        }
+
+    </style>
+</head>
+<body ng-app="ws" ng-controller="cal">
+    
+    <div id="page" class="site page-checkout">
+
+        <aside class="site-off desktop-hide">
+            <div class="off-canvas">
+                <div class="canvas-head flexitem">
+                    <div class="logo"><a href="#"><span class="circle"></span>.Star Light</a></div>
+                    <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="departments"></div>
+                <nav></nav>
+                <div class="thetop-nav"></div>
+            </div>
+        </aside>
+
+        <header>
+            <div class="header-top mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <ul class="flexitem main-links">
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Featured Products</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem main-links">
+                                
+                                    <li><a href="#">Sign Up</a></li>
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="#">Order Tracking</a></li>
+                                    <li><a href="#">USD <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                                        <ul>
+                                            <li class="current"><a href="#">USD</a></li>
+                                            <li><a href="#">EURO</a></li>
+                                            <li><a href="#">GBP</a></li>
+                                            <li><a href="#">IDR</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">English <span class="icon-small"><i class="ri-arrow-down-s-line"></i></span></a>
+                                        <ul>
+                                            <li class="current"><a href="#">English</a></li>
+                                            <li><a href="#">German</a></li>
+                                            <li><a href="#">Spanish</a></li>
+                                            <li><a href="#">bahasa</a></li>
+                                        </ul>
+                                    </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-nav">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                        <div class="left flexitem">
+                            <div class="logo"><a href="#"><span class="circle"></span>.Star Light</a></div>
+                            <nav class="mobile-hide">
+    
+                                <ul class="flexitem second-links">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Shop</a></li>
+                                    <li class="has-child">
+                                        <a href="#">Women
+                                            <div class="icon-small"><i class="ri-arrow-down-s-line"></i></div>
+                                        </a>
+                                        <div class="mega">
+                                            <div class="container">
+                                                <div class="wrapper">
+                                                    <div class="flexcol">
+                                                        <div class="row">
+                                                            <h4>Women's Clothing</h4>
+                                                            <ul>
+                                                                <li><a href="#">Dresses</a></li>
+                                                                <li><a href="#">Tops & Tees</a></li>
+                                                                <li><a href="#">Jackets</a></li>
+                                                                <li><a href="#">Pants & Trousers</a></li>
+                                                                <li><a href="#">Hodies & Sweatshirts</a></li>
+                                                                <li><a href="#">Saries</a></li>
+                                                                <li><a href="#">Shorts</a></li>
+                                                                <li><a href="#">Pajamas</a></li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flexcol">
+                                                        <div class="row">
+                                                            <h4>Jewelry</h4>
+                                                            <ul>
+                                                                <li><a href="#">Accessories</a></li>
+                                                                <li><a href="#">Bags & Purses</a></li>
+                                                                <li><a href="#">Necklaces</a></li>
+                                                                <li><a href="#">Rings</a></li>
+                                                                <li><a href="#">Earrings</a></li>
+                                                                <li><a href="#">Bracelets</a></li>
+                                                                <li><a href="#">Bangles</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flexcol">
+                                                        <div class="row">
+                                                            <h4>Beauty</h4>
+                                                            <ul>
+                                                                <li><a href="#">Makeup & Cosmetics</a></li>
+                                                                <li><a href="#">Skin Care</a></li>
+                                                                <li><a href="#">Hair Care</a></li>
+                                                                <li><a href="#">Fragrances</a></li>
+                                                                <li><a href="#">Soaps & Bath Accessories</a></li>
+                                                                <li><a href="#">Face Masks & Coverings</a></li>
+                                                                <li><a href="#">Spa Kits & Gifts</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flexcol">
+                                                        <div class="row">
+                                                            <h4>Top Brands</h4>
+                                                            <ul class="women-brands">
+                                                                <li><a href="#">Nike</a></li>
+                                                                <li><a href="#">Louis Vuitton</a></li>
+                                                                <li><a href="#">Hermes</a></li>
+                                                                <li><a href="#">Gucci</a></li>
+                                                                <li><a href="#">Zara</a></li>
+                                                                <li><a href="#">Tiffany & Co.</a></li>
+                                                                <li><a href="#">H&M</a></li>
+                                                                <li><a href="#">Chanel</a></li>
+                                                            </ul>
+                                                            <a href="#" class="view-all">View all brands <i class="ri-arrow-right-s-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flexcol products">
+                                                        <div class="row">
+                                                            <div class="media">
+                                                                <div class="thumbnail object-cover">
+                                                                    <a href="#">
+                                                                        <img src="images/products/appreal4.PNG" alt="">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-content">
+                                                                <h4>Most Wanted!</h4>
+                                                                <a href="#" class="primary-button">Order Now</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">Men</a></li>
+                                    <li>
+                                        <a href="#">Sports
+                                            <div class="fly-item"><span>New!</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="right">
+                            <ul class="flexitem second-links">
+                                <li class="mobile-hide"><a href="#">
+                                    <div class="icon-large"><i class="ri-heart-line"></i></div>
+                                    <div class="fly-item"><span class="item-number">0</span></div>
+                                </a></li>
+                                <li class="iscart"><a href="#" >
+                                    <div class="icon-large">
+                                        <i class="ri-shopping-cart-line"></i>
+                                        <div class="fly-item"><span class="item-number">{{count()}}</span></div>
+                                    </div>
+                                    <div class="icon-text">
+                                        <div class="mini-text">Total</div>
+                                        <div class="cart-total">{{ getTotal() | currency:'&#8377;' }}</div>
+                                    </div>
+                                </a>
+                                <div class="mini-cart">
+                                    <div class="content">
+                                        <div class="cart-head">
+                                            {{count()}} items in cart
+                                        </div>
+                                        <div class="cart-body">
+                                            <ul class="products mini">
+                                                <li ng-repeat="x in cart | orderBy:'category' ">
+                                                    <span>{{ x.load + ' x '+ x.product + ' = ' + (getCost(x) | currency:'&#8377;') }}</span>
+                                                    <button class="primary-button item-remove" ng-click="removeItem(x);">Remove Item</button>
+                                                    </br>
+                                                    </br>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cart-footer">
+                                            <div class="sub-total">
+                                                <p>Subtotal</p>
+                                                <p><strong>{{ getTotal() | currency:'&#8377;' }}</strong></p>
+                                            </div>
+                                            <div class="actions">
+                                                <a href="/checkout.html" class="secondary-button">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-main mobile-hide">
+                <div class="container">
+                    <div class="wrapper flexitem">
+                        <div class="left">
+                            <div class="dpt-cat">
+                                <div class="dpt-head">
+                                    <div class="main-text">All Departments</div>
+                                    <div class="mini-text mobile-hide">Total 1059 Products</div>
+                                    <a href="#" class="dpt-trigger mobile-hide">
+                                        <i class="ri-menu-3-line ri-xl"></i>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="search-box">
+                                <form action="" class="search">
+                                    <span class="icon-large"><i class="ri-search-2-line"></i></span>
+                                    <input type="search" placeholder="Search for products">
+                                    <button type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+            <div class="heading">
+                <h2><center>Shipping Address</center></h2>
+                <br>
+            </div>
+            <hr>
+            <br>
+            <marquee style="font-weight: 900;">PLEASE FILL THIS FORM IN CAPITAL LETTERS ONLY</marquee>
+            <br>
+            <br>
+            <form class="form" id="form" action="/index.html"  method = "get" name="reg">
+                <div class="form-control">
+                    <label>Name</label><br>
+                    <input type="text" name="" id="name" placeholder="Enter your full name" autocomplete="off" onblur=namecheck()>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label>Email</label><br>
+                    <input type="email" name="" id="email" placeholder="Enter your email" autocomplete="off" onblur=emailcheck()>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label>Address</label><br>
+                    <input type="text" name="" id="address" placeholder="Enter your address" autocomplete="off" onblur=addresscheck()>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label>Password</label><br>
+                    <input type="password" name="" id="password" placeholder="Enter your password" onblur=passcheck()>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label>Confirm Password</label><br>
+                    <input type="password" name="" id="confirm" placeholder="Confirm password" onkeyup=confirmcheck()>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i><br>
+                    <small>Error Message</small>
+                </div>
+                <input type="submit" value="Submit" class="btn" style="block-size: 50px;font-size: medium;" onclick="return validate()">               
+            </form>
+
+
+        </main>
+
+        <footer>
+            <div class="newsletter">
+                <div class="container">
+                    <div class="wraper">
+                        <div class="box">
+                            <div class="content">
+                                <h3>Join Our Newsletter</h3>
+                                <p>Get email updates about our latest shop and <strong>special offers</strong> </p>
+                            </div>
+                            <form action="#newsletter" class="search">
+                                <span class="icon-large"><i class="ri-mail-line"></i></span>
+                                <input type="mail" placeholder="Enter your email" required>
+                                <button type="submit">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widgets">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexwrap">
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Help & Contact</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Your Account</a></li>
+                                        <li><a href="#">Shipping Rates</a></li>
+                                        <li><a href="#">Assistants</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Product Categories</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Beauty</a></li>
+                                        <li><a href="#">Electronics</a></li>
+                                        <li><a href="#">Women's Fashion</a></li>
+                                        <li><a href="#">Men's Fashion</a></li>
+                                        <li><a href="#">Girl's Fashion</a></li>
+                                        <li><a href="#">Boy's Fashion</a></li>
+                                        <li><a href="#">Health & Households</a></li>
+                                        <li><a href="#">Home & Kitchen</a></li>
+                                        <li><a href="#">Pet Supplies</a></li>
+                                        <li><a href="#">Sports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>Payment Info</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Business Card</a></li>
+                                        <li><a href="#">Shop with Points</a></li>
+                                        <li><a href="#">Reload your balance</a></li>
+                                        <li><a href="#">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item mini-links">
+                                    <h4>About Us</h4>
+                                    <ul class="flexcol">
+                                        <li><a href="#">Company Info</a></li>
+                                        <li><a href="#">News</a></li>
+                                        <li><a href="#">Investors</a></li>
+                                        <li><a href="#">policies</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="flexcol">
+                            <div class="logo">
+                                <a href=""><span class="circle"></span>.Star Light</a>
+                            </div>
+                            <div class="socials">
+                                <ul class="flexitem">
+                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
+                                    <li><a href="#"><i class="ri-youtube-line"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mini-text">Copyright 2023 © .Star Light. All right reserved. </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const name= document.getElementById('name');
+        const email = document.getElementById('email');
+        const address = document.getElementById('address');
+        const password= document.getElementById('password');
+        const confirm = document.getElementById('confirm');
+
+        const lettersOnly = /^[A-Za-z]+$/;
+        const ispass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)[0-9a-zA-Z\W]{8,}$/;
+        // const isemail = /^\d{2}[aA-zZ]{3}\d{3}@nirmauni\.ac\.in$/;
+        const isemail =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+        flag=0;
+        flag1=0;
+        flag2=0;
+        flag3=0;
+        flag4=0;
+        const validate =  ()=> {
+            const nameVal= name.value.trim();
+            const emailVal = email.value.trim();
+            const addressVal = address.value.trim();
+            const passwordVal= password.value.trim();
+            const confirmVal= confirm.value.trim();   
+            
+            if(nameVal==""){
+                flag=0;
+                setErrorMsg(name,'Name cannot be blank');
+            }
+
+            if(emailVal==""){
+                flag1=0;
+                setErrorMsg(email,'Email cannot be blank');
+            }
+            
+            if(addressVal==""){
+                flag2=0;
+                setErrorMsg(address,'Address cannot be empty');
+            }
+
+            if(passwordVal==""){
+                flag3=0;
+                setErrorMsg(password,'Password cannot be blank');
+            }
+            
+            if(confirmVal==""){
+                flag4=0;
+                setErrorMsg(confirm,'Confirm password cannot be blank');
+            }
+
+            if(flag == 1 && flag1==1 && flag2==1 && flag3==1 && flag4==1){
+                ch=alert("wish to submit") 
+                return true;
+            }
+            else
+                return false;
+
+
+        }
+
+        function f2(){
+            // console.log(event.)
+            //08-backspace
+            //09-tab
+            //32-space
+            if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode== 8 || event.keyCode== 9 || event.keyCode==32)
+            {
+                console.log("Entered letters")
+                return true;
+            }
+            else
+            {
+                console.log("Other then letters")
+                event.preventDefault();
+                return false;
+            }
+        }        
+        form.name.addEventListener('keydown', f2)
+        // reg.name.onkeydown=function()
+        // {
+        //     return f2();
+        // }
+        function namecheck(){
+            const nameVal1= name.value.trim();
+            if(nameVal1==""){
+                flag=0;
+                setErrorMsg(name,'Name cannot be blank');
+            }
+            else{
+                flag=1;
+                setSuccessMsg(name);
+            }
+        }
+        function emailcheck(){
+            const emailVal1 = email.value.trim();
+            if(emailVal1==""){
+                flag1=0;
+                setErrorMsg(email,'Email cannot be blank');
+            }
+            else if(!isemail.test(emailVal1)){
+                flag1=0;
+                setErrorMsg(email,'Email format invalid.!');
+            }
+            else{
+                flag1=1;
+                setSuccessMsg(email);
+            }
+        }
+        function addresscheck(){
+            const addressVal1 = address.value.trim();
+            if(addressVal1==""){
+                flag2=0;
+                setErrorMsg(address,'Address cannot be empty');
+            }else{
+                flag2=1;
+                setSuccessMsg(address);
+            }
+        }
+
+        function passcheck(){
+            const passwordVal1= password.value.trim();
+            if(passwordVal1==""){
+                flag3=0;
+                setErrorMsg(password,'Password cannot be blank');
+            }
+            else if(!ispass.test(passwordVal1)){
+                flag3=0;
+                setErrorMsg(password,'Password must be a minimum of eight characters long consisting of a combination of uppercase letter, lowercase letter, and digits.');
+            }   
+            else{
+                flag3=1;
+                setSuccessMsg(password);
+            }
+        }
+
+        function confirmcheck(){
+            const passwordVal2= password.value.trim();
+            const confirmVal2= confirm.value.trim();
+            if(confirmVal2==""){
+                flag4=0;
+                setErrorMsg(confirm,'Confirm password cannot be blank');
+            }else if(confirmVal2!=passwordVal2){
+                flag4=0;
+                setErrorMsg(confirm,'Password not matched!');
+            }else{
+                flag4=1;
+                setSuccessMsg(confirm);
+            }
+        }
+
+        function setErrorMsg(input,errormsg){
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = "form-control error"
+            small.innerText = errormsg;
+        }
+
+        function setSuccessMsg(input){
+            const formControl = input.parentElement;
+            formControl.className = "form-control success"
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script data-semver="1.4.9" 
+            src="https://code.angularjs.org/1.4.12/angular.js"
+            data-require="angular.js@1.4.x">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
